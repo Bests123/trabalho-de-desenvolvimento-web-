@@ -1,0 +1,45 @@
+.foot{
+   padding-top: 30px;
+   
+}
+
+.copy{
+   background: #21252b;
+   height: 10px;
+   padding: 0 10%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.f__text{
+   color: #ee7631;
+   font-weight: 50;
+   font-size: 14px;  
+   letter-spacing: 0.02em;
+}
+
+.f__text--center{
+   text-align: center;
+   margin-bottom: 10px;
+}
+
+.social{
+   text-align: center;
+   margin-bottom: 30px;
+}
+
+.social img{
+   height: 45px;
+   cursor: pointer;
+
+   transition: transform .3s ease-out;
+}
+
+.social img:hover{
+   transform: scale(1.5);
+}
+.Times{
+   width: 5;
+   height: 5;
+}

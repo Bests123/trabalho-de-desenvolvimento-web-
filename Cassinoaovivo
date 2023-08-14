@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #ff6a00#333;
+        }
+
+        #menu {
+            width: 200px;
+            background-color: #ff6a00;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+        }
+
+        #menu a {
+            display: block;
+            padding: 20px;
+            text-decoration: none;
+            color: white;
+        }
+
+        #menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu ul li {
+            padding-left: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            margin-left: 200px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            border: 1px solid #000000;
+            box-shadow: #000000;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            color: #fff;
+            z-index: 1;
+        }
+
+        .botaomais {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-color: black;
+            color: #000000;
+            border-radius: 10px;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .main-content .container {
+            flex: 1;
+        }
+
+        ul.submenu-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.submenu-list li {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .banner-title {
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.93);
+            width: 100%;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #000000;
+            margin: 20px 0;
+        }
+
+        .category {
+            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .category-title {
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <h3>Menu</h3>
+        <ul>
+            <li><a href="#">Cassino Ao Vivo</a></li>
+            <ul>
+                <li><a href="#">Jogos Exclusivos</a></li>
+                <li><a href="#">Game Show</a></li>
+            </ul>
+            </li>
+            <li><a href="#">Item 3</a></li>
+            <li><a href="#">Item 4</a>
+                <ul>
+                    <li><a href="#">Subitem 1</a></li>
+                    <li><a href="#">Subitem 2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="banner-title">
+            <h2> Cassino online </h2>
+        </div>
+        <ul class="submenu-list">
+            <li class="container">
+                <img src="banner1.jpg" alt="Imagem 1">
+                <button class="botaomais">Mais</button>
+                <div class="text">
+                    Fins de semana com 50 fichas douradas para cassino ao vivo
+                </div>
+            </li>
+            <li class="container">
+                <img src="banner1.jpg" alt="Imagem 2">
+                <button class="botaomais">Mais</button>
+                <div class="text">
+                    Fins de semana com 50 fichas douradas para cassino ao vivo
+                </div>
+            </li>
+            <li class="container">
+                <img src="banner1.jpg" alt="Imagem 3">
+                <button class="botaomais">Mais</button>
+                <div class="text">
+                    Fins de semana com 50 fichas douradas para cassino ao vivo
+                </div>
+            </li>
+            <li class="container">
+                <img src="banner1.jpg" alt="Imagem 3">
+                <button class="botaomais">Mais</button>
+                <div class="text">
+                    Fins de semana com 50 fichas douradas para cassino ao vivo
+                </div>
+            </li>
+            <li class="container">
+                <img src="banner1.jpg" alt="Imagem 3">
+                <button class="botaomais">Mais</button>
+                <div class="text">
+                    Fins de semana com 50 fichas douradas para cassino ao vivo
+                </div>
+            </li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <div class="category">
+            <div class="category-title">Categoria 1</div>
+            <ul class="submenu-list">
+                <li class="container">
+                    <img src="banner2.jpg" alt="Imagem 4">
+                    <button class="botaomais">Mais</button>
+                    <div class="text">
+                        Descrição da imagem 4
+                    </div>
+                </li>
+                <li class="container">
+                    <img src="banner2.jpg" alt="Imagem 5">
+                    <button class="botaomais">Mais</button>
+                    <div class="text">
+                        Descrição da imagem 5
+                    </div>
+                </li>
+                <li class="container">
+                    <img src="banner2.jpg" alt="Imagem 6">
+                    <button class="botaomais">Mais</button>
+                    <div class="text">
+                        Descrição da imagem 6
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="category">
+            <div class="category-title">Categoria 2</div>
+            <ul class="submenu-list">
+                <li class="container">
+                    <img src="banner3.jpg" alt="Imagem 7">
+                    <button class="botaomais">Mais</button>
+                    <div class="text">
+                        Descrição da imagem 7
+                    </div>
+                </li>
+                <li class="container">
+                    <img src="banner3.jpg" alt="Imagem 8">
+                    <button class="botaomais">Mais</button>
+                    <div class="text">
+                        Descrição da imagem 8
+                    </div>
+                </li>
+                <li class="container">
+                    <img src="banner3.jpg" alt="Imagem 9">
+                    <button class="botaomais">Mais</button>
+                    <div class="text">
+                        Descrição da imagem 9
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

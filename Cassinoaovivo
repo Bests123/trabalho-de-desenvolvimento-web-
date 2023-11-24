@@ -1,253 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
-            flex-direction: column;
-            background-color: #ff6a00#333;
+            overflow: hidden; 
+            flex-direction: column; 
         }
 
-        #menu {
-            width: 200px;
-            background-color: #ff6a00;
-            color: white;
-            padding-top: 20px;
-            position: fixed;
-            height: 100%;
-        }
-
-        #menu a {
-            display: block;
-            padding: 20px;
-            text-decoration: none;
-            color: white;
-        }
-
-        #menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        #menu ul li {
-            padding-left: 20px;
-        }
-
-        .main-content {
+        header {
             display: flex;
-            margin-left: 200px;
-            padding: 20px;
-            flex-wrap: wrap;
-        }
-
-        .container {
-            width: 200px;
-            height: 150px;
-            margin: 10px;
-            border: 1px solid #000000;
-            box-shadow: #000000;
-            overflow: hidden;
-            position: relative;
-            border-radius: 10px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
             padding: 10px;
-            color: #fff;
-            z-index: 1;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
         }
 
-        .botaomais {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            border-color: black;
-            color: #000000;
-            border-radius: 10px;
-            padding: 5px 10px;
-            border: none;
-            cursor: pointer;
+        .logo {
+            font-size: 18px;
+            width: auto;
+            height: auto; 
         }
 
-        .main-content .container {
+        .spacer {
+            height: auto; 
+        }
+
+        .content-container {
+            display: flex;
             flex: 1;
         }
 
-        ul.submenu-list {
-            list-style: none;
-            padding: 0;
+        .menu-container {
+            position: fixed; 
+            top: 70px; 
+            left: 0;
+            height: 100vh;
+            width: 80px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; 
+            transition: width 0.4s; 
+            z-index: 1; 
         }
 
-        ul.submenu-list li {
-            display: inline-block;
-            vertical-align: top;
+        .icon {
+            cursor: pointer;
+            position: absolute; 
+            left: 0;
+            top: 0;
+            padding: 20px;
+            z-index: 2; 
         }
 
-        .banner-title {
-            text-align: center;
+        .line {
+            width: 30px;
+            height: 3px;
+            background-color: #fff; 
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .menu-items {
+            display: none; 
             padding: 10px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.93);
-            width: 100%;
-        }
-
-        .divider {
-            width: 100%;
-            height: 1px;
-            background-color: #000000;
-            margin: 20px 0;
-        }
-
-        .category {
-            width: 100%;
-            padding: 20px 0;
             text-align: center;
+            list-style: none; 
+            margin: 10px 0 0; 
+            z-index: 1;
         }
 
-        .category-title {
-            font-size: 24px;
-            color: #000000;
+        .menu-items button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
             margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            transition: background-color 0.3s;
         }
+
+        .menu-items button:hover {
+            background-color: #555;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            margin-left: 80px; 
+            transition: margin-left 0.4s;
+        }
+
+        .slider-container {
+            position: relative;
+            width: auto;
+            height: 200px; 
+            overflow: hidden;
+            margin-bottom: 20px; 
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .ponto {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .ativo, .ponto:hover {
+            background-color: #717171;
+        }
+        #carousel-container {
+      
+      overflow: hidden;
+      width: 70%;
+      position: relative;
+      margin-left: 150px;
+    }
+
+    #image-container {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-image-container {
+      position: relative;
+    }
+
+    .carousel-image {
+      width: 300px;
+      height: 200px;
+      margin-right: 10px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .image-description {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    #prevBtn, #nextBtn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    #prevBtn { left: 10px; }
+    #nextBtn { right: 10px; }
     </style>
+    <title>Casa de apostas</title>
 </head>
-
 <body>
-    <div id="menu">
-        <h3>Menu</h3>
-        <ul>
-            <li><a href="#">Cassino Ao Vivo</a></li>
-            <ul>
-                <li><a href="#">Jogos Exclusivos</a></li>
-                <li><a href="#">Game Show</a></li>
-            </ul>
-            </li>
-            <li><a href="#">Item 3</a></li>
-            <li><a href="#">Item 4</a>
-                <ul>
-                    <li><a href="#">Subitem 1</a></li>
-                    <li><a href="#">Subitem 2</a></li>
-                </ul>
-            </li>
+  
+  <header>
+    <img src="imagembetano.svg" class="logo">
+
+  </header>
+
+  <div class="spacer"></div>
+
+  <div class="content-container">
+    <div class="menu-container" id="menuContainer">
+        <div class="icon" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="menu-items">
+            <li><button onclick="navigateTo('Item 1')">Item 1</button></li>
+            <li><button onclick="navigateTo('Item 2')">Item 2</button></li>
+            <li><button onclick="navigateTo('Item 3')">Item 3</button></li>
+        
         </ul>
     </div>
-    <div class="main-content">
-        <div class="banner-title">
-            <h2> Cassino online </h2>
-        </div>
-        <ul class="submenu-list">
-            <li class="container">
-                <img src="banner1.jpg" alt="Imagem 1">
-                <button class="botaomais">Mais</button>
-                <div class="text">
-                    Fins de semana com 50 fichas douradas para cassino ao vivo
-                </div>
-            </li>
-            <li class="container">
-                <img src="banner1.jpg" alt="Imagem 2">
-                <button class="botaomais">Mais</button>
-                <div class="text">
-                    Fins de semana com 50 fichas douradas para cassino ao vivo
-                </div>
-            </li>
-            <li class="container">
-                <img src="banner1.jpg" alt="Imagem 3">
-                <button class="botaomais">Mais</button>
-                <div class="text">
-                    Fins de semana com 50 fichas douradas para cassino ao vivo
-                </div>
-            </li>
-            <li class="container">
-                <img src="banner1.jpg" alt="Imagem 3">
-                <button class="botaomais">Mais</button>
-                <div class="text">
-                    Fins de semana com 50 fichas douradas para cassino ao vivo
-                </div>
-            </li>
-            <li class="container">
-                <img src="banner1.jpg" alt="Imagem 3">
-                <button class="botaomais">Mais</button>
-                <div class="text">
-                    Fins de semana com 50 fichas douradas para cassino ao vivo
-                </div>
-            </li>
-        </ul>
 
-        <div class="divider"></div>
-
-        <div class="category">
-            <div class="category-title">Categoria 1</div>
-            <ul class="submenu-list">
-                <li class="container">
-                    <img src="banner2.jpg" alt="Imagem 4">
-                    <button class="botaomais">Mais</button>
-                    <div class="text">
-                        Descrição da imagem 4
-                    </div>
-                </li>
-                <li class="container">
-                    <img src="banner2.jpg" alt="Imagem 5">
-                    <button class="botaomais">Mais</button>
-                    <div class="text">
-                        Descrição da imagem 5
-                    </div>
-                </li>
-                <li class="container">
-                    <img src="banner2.jpg" alt="Imagem 6">
-                    <button class="botaomais">Mais</button>
-                    <div class="text">
-                        Descrição da imagem 6
-                    </div>
-                </li>
-            </ul>
+    <div class="content">
+        <!-- Slider Container -->
+        <div class="slider-container">
+            <!-- Imagens do Slider -->
+            <div class="minhasSlides">
+                <a href="link1.html" class="link-imagem">
+                    <img src="imagem1.jpg" class="banner-img">
+                    <div class="texto">Texto da Legenda</div>
+                </a>
+            </div>
+            <div class="minhasSlides">
+                <a href="link2.html" class="link-imagem">
+                    <img src="imagem2.jpg" class="banner-img">
+                    <div class="texto">Legenda Dois</div>
+                </a>
+            </div>
+            <div class="minhasSlides">
+                <a href="link3.html" class="link-imagem">
+                    <img src="imagem3.jpg" class="banner-img">
+                    <div class="texto">Legenda Três</div>
+                </a>
+            </div>
         </div>
 
-        <div class="divider"></div>
 
-        <div class="category">
-            <div class="category-title">Categoria 2</div>
-            <ul class="submenu-list">
-                <li class="container">
-                    <img src="banner3.jpg" alt="Imagem 7">
-                    <button class="botaomais">Mais</button>
-                    <div class="text">
-                        Descrição da imagem 7
-                    </div>
-                </li>
-                <li class="container">
-                    <img src="banner3.jpg" alt="Imagem 8">
-                    <button class="botaomais">Mais</button>
-                    <div class="text">
-                        Descrição da imagem 8
-                    </div>
-                </li>
-                <li class="container">
-                    <img src="banner3.jpg" alt="Imagem 9">
-                    <button class="botaomais">Mais</button>
-                    <div class="text">
-                        Descrição da imagem 9
-                    </div>
-                </li>
-            </ul>
+        <div style="text-align:center">
+            <span class="ponto" onclick="slideAtual(1)"></span>
+            <span class="ponto" onclick="slideAtual(2)"></span>
+            <span class="ponto" onclick="slideAtual(3)"></span>
         </div>
+
+
+        <h1>Sua casa de apostas agora esta online!</h1>
     </div>
+  </div>
+  <div id="carousel-container">
+    <div id="image-container">
+      <div class="carousel-image-container" onmouseenter="showDescription(0)" onmouseleave="hideDescription(0)">
+        <img class="carousel-image" src="imagem1.jpg">
+        <div class="image-description">Descrição da Imagem 1</div>
+      </div>
+      <div class="carousel-image-container" onmouseenter="showDescription(1)" onmouseleave="hideDescription(1)">
+        <img class="carousel-image" src="imagem2.jpg">
+        <div class="image-description">Descrição da Imagem 2</div>
+      </div>
+      <div class="carousel-image-container" onmouseenter="showDescription(2)" onmouseleave="hideDescription(2)">
+        <img class="carousel-image" src="imagem3.jpg">
+        <div class="image-description">Descrição da Imagem 3</div>
+      </div>
+      <div class="carousel-image-container" onmouseenter="showDescription(3)" onmouseleave="hideDescription(3)">
+        <img class="carousel-image" src="imagem4.jpg">
+        <div class="image-description">Descrição da Imagem 4</div>
+      </div>
+      <div class="carousel-image-container" onmouseenter="showDescription(4)" onmouseleave="hideDescription(4)">
+        <img class="carousel-image" src="imagem5.jpg">
+        <div class="image-description">Descrição da Imagem 5</div>
+      </div>
+      <div class="carousel-image-container" onmouseenter="showDescription(5)" onmouseleave="hideDescription(5)">
+        <img class="carousel-image" src="imagem6.jpg">
+        <div class="image-description">Descrição da Imagem 6</div>
+      </div>
+
+    </div>
+    <button id="prevBtn" onclick="prevSlide()">❮</button>
+    <button id="nextBtn" onclick="nextSlide()">❯</button>
+  </div>
+  <div id="carousel-container-2">
+    <div id="image-container-2">
+
+    </div>
+    <button id="prevBtn-2" onclick="prevSlide(2)">❮</button>
+    <button id="nextBtn-2" onclick="nextSlide(2)">❯</button>
+ </div>
+
+<script>
+    let indiceSlide = 0;
+    mostraSlides();
+
+    function slideAtual(n) {
+        mostraSlides(indiceSlide = n - 1);
+    }
+
+    function mostraSlides() {
+        let i;
+        let slides = document.getElementsByClassName("minhasSlides");
+        let pontos = document.getElementsByClassName("ponto");
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        for (i = 0; i < pontos.length; i++) {
+            pontos[i].className = pontos[i].className.replace(" ativo", "");
+        }
+
+        indiceSlide++;
+
+        if (indiceSlide > slides.length) {
+            indiceSlide = 1;
+        }
+
+        slides[indiceSlide - 1].style.display = "block";
+        pontos[indiceSlide - 1].className += " ativo";
+        setTimeout(mostraSlides, 2000);
+    }
+
+    function toggleMenu() {
+        var menuContainer = document.getElementById('menuContainer');
+        var menuItems = document.querySelector('.menu-items');
+        var content = document.querySelector('.content');
+
+        if (menuContainer.style.width === "250px") {
+            menuContainer.style.width = "80px";
+            menuItems.style.display = "none";
+            content.style.marginLeft = "80px";
+        } else {
+            menuContainer.style.width = "250px";
+            menuItems.style.display = "block";
+            content.style.marginLeft = "250px";
+        }
+    }
+
+    function navigateTo(item) {
+        alert('Navegando para: ' + item);
+
+    }
+
+//cod carrossel 
+        let currentIndex = 0;
+        const descriptions = document.querySelectorAll('.image-description');
+        const totalImages = descriptions.length;
+
+        function updateTransform() {
+            document.getElementById('image-container').style.transform = `translateX(${-currentIndex * 310}px)`; 
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+            currentIndex--;
+            updateTransform();
+            }
+        }
+
+        function nextSlide() {
+            if (currentIndex < totalImages - 3) {
+            currentIndex++;
+            updateTransform();
+            }
+        }
+
+        function showDescription(index) {
+            descriptions.forEach((desc, i) => {
+            if (i === index) {
+                desc.style.opacity = 1;
+            } else {
+                desc.style.opacity = 0;
+            }
+            });
+        }
+
+        function hideDescription(index) {
+            descriptions[index].style.opacity = 0;
+        }
+</script>
+
 </body>
-
 </html>

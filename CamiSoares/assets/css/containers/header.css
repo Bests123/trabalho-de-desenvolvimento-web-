@@ -68,21 +68,39 @@ ul li a{
 
 ul li u.cadastro li {
    display: block;
+   
 }
 
 ul li ul.cadastro {
-   width: 100%;
+   width: 150px;
    background:none;
-   position: absolute;
+   position:absolute;
    z-index: 999;
    display: none;
+   background-color: #21252b;
+   padding: 0%;
+   border-radius: 12px;
 }
 
 ul li a:hover {
    background: #924607bb;
+   border-radius: 12px;
 }
 
 ul li:hover ul.cadastro {
    display: block;
 }
 
+.div_navbar{
+   text-align: center;
+}
+
+.li_cadastro{
+   width: 150px;
+  
+  }
+
+#logo{
+   margin-right: 50%;
+   
+}

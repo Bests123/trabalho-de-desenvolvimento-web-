@@ -1,0 +1,140 @@
+   
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    background-color: #333;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #21252b;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    width: auto;
+    height: 50px;
+}
+
+.spacer {
+    height: auto;
+}
+
+
+#carousel-container {
+  overflow: hidden;
+  width: 55%;
+  position: relative;
+  margin: auto;
+}
+
+#image-container {
+  margin-top: 75px;
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-image-container {
+  position: relative;
+
+}
+
+.carousel-image {
+  width: 300px;
+  height: 400px;
+  margin-right: 20px;
+  object-fit: cover;
+  cursor: pointer;border-radius: 20px;
+}
+
+.image-description {
+  position: absolute;
+  bottom: 0;
+  background-color: #555;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#prevBtn, #nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #333; 
+  color: #fff; 
+}
+
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+
+.container {
+    text-align: center;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.winner-box {
+    margin-top: 20px;
+    border: 2px solid #333;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+table {
+    
+    border-collapse: collapse;
+    margin-top: 100px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    background-color: #21252b;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+th:hover,
+td:hover {
+    background-color: #ddd;
+}
+td {
+    text-align: left;
+    background-color: #21252b;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.item-prefix {
+    padding-right: 350px; 
+}
+
+.item-content {
+
+}

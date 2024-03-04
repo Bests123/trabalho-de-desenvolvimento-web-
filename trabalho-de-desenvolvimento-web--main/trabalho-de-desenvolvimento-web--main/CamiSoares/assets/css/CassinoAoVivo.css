@@ -1,0 +1,145 @@
+ 
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    background-color: #333;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #21252b;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    width: auto;
+    height: 50px;
+}
+
+.spacer {
+    margin-bottom: 150px;
+}
+
+
+#carousel-container {
+
+  overflow: hidden;
+  width: 55%;
+  position: relative;
+  margin: auto;
+}
+
+#image-container {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-image-container {
+  position: relative;
+
+}
+
+.carousel-image {
+  width: 300px;
+  height: 400px;
+  margin-right: 20px;
+  object-fit: cover;
+  cursor: pointer;border-radius: 20px;
+}
+
+.image-description {
+  position: absolute;
+  bottom: 0;
+  background-color: #555;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.arrow-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #333; 
+  color: #fff; 
+  width: 60px;
+}
+
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }
+
+#videoDesktopcassino{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 680px;
+ }
+ 
+
+h1 {
+    background-color: #252424; 
+    color: #fff; 
+    padding: 10px; 
+    margin: 0;
+    text-align: center;
+
+}
+.custom-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 200px; 
+  height: 150px; 
+  margin: 10px; 
+  margin-left: 0; /* Removi a margem à esquerda para centralizar */
+}
+
+.custom-container:hover .custom-overlay {
+  opacity: 1;
+}
+
+.custom-container:hover .custom-image {
+  transform: scale(1.2);
+}
+
+.custom-image {
+  transition: transform 0.3s ease-in-out;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.custom-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Alterado para 3 colunas */
+  gap: 10px; 
+  justify-content: center;
+}
